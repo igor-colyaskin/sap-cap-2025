@@ -78,4 +78,8 @@ annotate service.Employees with @(
             @UI.Importance: #Low
         },
     ],
+        UI.SelectionFields : [
+        department,  
+        salary        
+    ],
 );
