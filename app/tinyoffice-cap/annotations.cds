@@ -45,11 +45,11 @@ annotate service.Employees with @(
         Target: '@UI.FieldGroup#GeneratedGroup',
     }, ],
     UI.LineItem                  : [
-        {
-            $Type: 'UI.DataField',
-            Label: 'ID',
-            Value: ID,
-        },
+        // {
+        //     $Type: 'UI.DataField',
+        //     Label: 'ID',
+        //     Value: ID,
+        // },
         {
             $Type: 'UI.DataField',
             Label: 'name',
