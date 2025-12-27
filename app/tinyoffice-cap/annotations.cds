@@ -51,19 +51,22 @@ annotate service.Employees with @(
         //     Value: ID,
         // },
         {
-            $Type: 'UI.DataField',
-            Label: 'Full Name',
-            Value: name,
+            $Type         : 'UI.DataField',
+            Label         : 'Full Name',
+            Value         : name,
+            @UI.Importance: #High
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'Department',
-            Value: department,
+            $Type         : 'UI.DataField',
+            Label         : 'Department',
+            Value         : department,
+            @UI.Importance: #Medium
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'Salary',
-            Value: salary,
+            $Type         : 'UI.DataField',
+            Label         : 'Salary',
+            Value         : salary,
+            @UI.Importance: #Low
         },
     ],
 );
