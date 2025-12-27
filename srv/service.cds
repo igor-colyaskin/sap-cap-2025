@@ -1,5 +1,5 @@
 using my.tinyoffice from '../db/schema';
 
 service CatalogService {
-    @readonly entity Employee as projection on tinyoffice.Employee;
+    @readonly entity Employees as projection on tinyoffice.Employees;
 }

@@ -1,6 +1,6 @@
 namespace my.tinyoffice;
 
-entity Employee {
+entity Employees {
   key ID : Integer;
   name   : String;
   department : String;
