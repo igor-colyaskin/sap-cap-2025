@@ -52,17 +52,17 @@ annotate service.Employees with @(
         // },
         {
             $Type: 'UI.DataField',
-            Label: 'name',
+            Label: 'Full Name',
             Value: name,
         },
         {
             $Type: 'UI.DataField',
-            Label: 'department',
+            Label: 'Department',
             Value: department,
         },
         {
             $Type: 'UI.DataField',
-            Label: 'salary',
+            Label: 'Salary',
             Value: salary,
         },
     ],
