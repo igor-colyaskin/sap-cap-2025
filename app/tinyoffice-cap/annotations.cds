@@ -44,6 +44,15 @@ annotate service.Employees with @(
         Label : 'General Information',
         Target: '@UI.FieldGroup#GeneratedGroup',
     }, ],
+        UI.PresentationVariant : {
+        SortOrder : [
+            {
+                Property : name,
+                Descending : false // false = А-Я, true = Я-А
+            }
+        ],
+        Visualizations : ['@UI.LineItem'] // Примени это к нашей таблице
+    },
     UI.LineItem                  : [
         // {
         //     $Type: 'UI.DataField',
