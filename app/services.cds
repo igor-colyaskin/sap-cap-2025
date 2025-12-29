@@ -1,2 +1,2 @@
 
-using from './tinyoffice-cap/annotations';
+using from './tinyoffice/annotations';

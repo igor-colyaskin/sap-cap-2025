@@ -1,7 +1,7 @@
 {
   "_version": "1.76.0",
   "sap.app": {
-    "id": "tiny.office.tinyofficecap",
+    "id": "tinyoffice.tinyoffice",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.20.0",
-      "toolsId": "0e5eee27-dfb3-45ed-8d2a-1cee77ba4b73"
+      "toolsId": "29d42c57-74ff-4ec0-8f3c-627ab069fa04"
     },
     "dataSources": {
       "mainService": {
@@ -22,6 +22,20 @@
         "settings": {
           "annotations": [],
           "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "tiny-office": {
+          "semanticObject": "tiny",
+          "action": "office",
+          "title": "{{tiny-office.flpTitle}}",
+          "subTitle": "{{tiny-office.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -60,7 +74,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "tiny.office.tinyofficecap.i18n.i18n"
+          "bundleName": "tinyoffice.tinyoffice.i18n.i18n"
         }
       },
       "": {
@@ -85,19 +99,19 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "EmployeeList",
-          "target": "EmployeeList"
+          "name": "EmployeesList",
+          "target": "EmployeesList"
         },
         {
           "pattern": "Employees({key}):?query:",
-          "name": "EmployeeObjectPage",
-          "target": "EmployeeObjectPage"
+          "name": "EmployeesObjectPage",
+          "target": "EmployeesObjectPage"
         }
       ],
       "targets": {
-        "EmployeeList": {
+        "EmployeesList": {
           "type": "Component",
-          "id": "EmployeeList",
+          "id": "EmployeesList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
@@ -106,7 +120,7 @@
               "navigation": {
                 "Employees": {
                   "detail": {
-                    "route": "EmployeeObjectPage"
+                    "route": "EmployeesObjectPage"
                   }
                 }
               },
@@ -120,9 +134,9 @@
             }
           }
         },
-        "EmployeeObjectPage": {
+        "EmployeesObjectPage": {
           "type": "Component",
-          "id": "EmployeeObjectPage",
+          "id": "EmployeesObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {

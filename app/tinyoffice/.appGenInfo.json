@@ -1,14 +1,14 @@
 {
   "generationParameters": {
-    "generationDate": "Sat Dec 27 2025 08:40:30 GMT+0400 (Georgia Standard Time)",
+    "generationDate": "Mon Dec 29 2025 12:45:15 GMT+0400 (Georgia Standard Time)",
     "generatorPlatform": "Visual Studio Code",
     "serviceType": "Local CAP",
     "metadataFilename": "",
     "serviceUrl": "http://localhost:4004/odata/v4/catalog/",
-    "appName": "tinyoffice-cap",
-    "appTitle": "Tiny Office",
+    "appName": "tinyoffice",
+    "appTitle": "App Title",
     "appDescription": "An SAP Fiori application.",
-    "appNamespace": "tiny.office",
+    "appNamespace": "tinyoffice",
     "ui5Theme": "sap_horizon",
     "ui5Version": "1.143.2",
     "enableCodeAssist": false,
@@ -24,6 +24,6 @@
         "value": "Employees"
       }
     ],
-    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/tinyoffice-cap/webapp/index.html"
+    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/tinyoffice.tinyoffice/index.html"
   }
 }

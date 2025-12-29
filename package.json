@@ -12,13 +12,15 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-tinyoffice-cap": "cds watch --open tiny.office.tinyofficecap/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-tinyoffice-cap": "cds watch --open tiny.office.tinyofficecap/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-tinyoffice": "cds watch --open tinyoffice.tinyoffice/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "workspaces": [
     "app/*"
   ],
   "sapux": [
-    "app/tinyoffice-cap"
+    "app/tinyoffice-cap",
+    "app/tinyoffice"
   ]
 }

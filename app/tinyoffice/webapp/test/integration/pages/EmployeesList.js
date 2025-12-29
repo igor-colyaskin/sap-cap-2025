@@ -8,9 +8,9 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'tiny.office.tinyofficecap',
-            componentId: 'EmployeeList',
-            contextPath: '/Employee'
+            appId: 'tinyoffice.tinyoffice',
+            componentId: 'EmployeesList',
+            contextPath: '/Employees'
         },
         CustomPageDefinitions
     );

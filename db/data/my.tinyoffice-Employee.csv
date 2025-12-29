@@ -1,5 +1,5 @@
 ID;name;department_ID;salary
-1;Benji Dunn;1;75000.00
-2;Ilsa Faust;2;65000.00
-3;Alanna Mitsopolis;3;70000.00
-4;Ethan Hunt;2;60000.00
+0a80044e-b63f-456f-b1a2-25b84053ac86;Benji Dunn;2ea00de2-30c5-4512-819e-49cae7cd59cd;75000.00
+5df4029f-58cd-4783-9815-85b4cbe232e3;Ilsa Faust;cc07f625-587e-454d-899d-862469d90a1a;65000.00
+861907b8-1afe-48be-a22e-991bc5a6c843;Alanna Mitsopolis;8d20bb3f-e93d-4736-971f-3bbc52d35a16;70000.00
+ef1ab256-8bab-4a84-aa74-8ec9010cf265;Ethan Hunt;cc07f625-587e-454d-899d-862469d90a1a;60000.00

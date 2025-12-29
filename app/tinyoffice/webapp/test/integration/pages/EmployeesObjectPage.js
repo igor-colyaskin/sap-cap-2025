@@ -8,9 +8,9 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'tiny.office.tinyofficecap',
-            componentId: 'EmployeeObjectPage',
-            contextPath: '/Employee'
+            appId: 'tinyoffice.tinyoffice',
+            componentId: 'EmployeesObjectPage',
+            contextPath: '/Employees'
         },
         CustomPageDefinitions
     );

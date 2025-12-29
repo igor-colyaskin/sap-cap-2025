@@ -1,8 +1,8 @@
-## yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 
 specVersion: "4.0"
 metadata:
-  name: tiny.office.tinyofficecap
+  name: tinyoffice.tinyoffice
 type: application
 server:
   customMiddleware:
@@ -21,3 +21,8 @@ server:
         port: 35729
         path: webapp
         delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon

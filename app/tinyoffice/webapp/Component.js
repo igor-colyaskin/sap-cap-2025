@@ -3,7 +3,7 @@ sap.ui.define(
     function (Component) {
         "use strict";
 
-        return Component.extend("tiny.office.tinyofficecap.Component", {
+        return Component.extend("tinyoffice.tinyoffice.Component", {
             metadata: {
                 manifest: "json"
             }
