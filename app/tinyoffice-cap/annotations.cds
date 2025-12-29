@@ -29,7 +29,7 @@ annotate service.Employees with @(
             {
                 $Type: 'UI.DataField',
                 Label: 'department',
-                Value: department,
+                Value: department_ID,
             },
             {
                 $Type: 'UI.DataField',
@@ -78,7 +78,7 @@ annotate service.Employees with @(
         {
             $Type         : 'UI.DataField',
             Label         : 'Department',
-            Value         : department,
+            Value         : department_ID,
             @UI.Importance: #Medium
         },
         {
