@@ -1,8 +1,14 @@
 namespace my.tinyoffice;
 
-entity Employees {
+entity Employee {
   key ID : Integer;
   name   : String;
-  department : String;
+  department : Association to Department;
   salary : Decimal(10,2);
+}
+
+entity Department {
+  key ID : Integer;
+  name   : String;
+  building : String;
 }

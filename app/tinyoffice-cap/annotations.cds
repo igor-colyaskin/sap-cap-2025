@@ -1,5 +1,17 @@
 using CatalogService as service from '../../srv/service';
 
+annotate service.Employees with {
+    department  @Common.Text: department.name  @Common.TextArrangement: #TextOnly;
+};
+
+annotate service.Departments with {
+    ID @(
+        Common.Text           : name,
+        Common.TextArrangement: #TextOnly
+    )
+};
+
+
 annotate service.Employees with @(
     UI.FieldGroup #GeneratedGroup: {
         $Type: 'UI.FieldGroupType',
@@ -44,14 +56,12 @@ annotate service.Employees with @(
         Label : 'General Information',
         Target: '@UI.FieldGroup#GeneratedGroup',
     }, ],
-        UI.PresentationVariant : {
-        SortOrder : [
-            {
-                Property : name,
-                Descending : false // false = А-Я, true = Я-А
-            }
-        ],
-        Visualizations : ['@UI.LineItem'] // Примени это к нашей таблице
+    UI.PresentationVariant       : {
+        SortOrder     : [{
+            Property  : name,
+            Descending: false // false = А-Я, true = Я-А
+        }],
+        Visualizations: ['@UI.LineItem'] // Примени это к нашей таблице
     },
     UI.LineItem                  : [
         // {
@@ -78,8 +88,8 @@ annotate service.Employees with @(
             @UI.Importance: #Low
         },
     ],
-        UI.SelectionFields : [
-        department,  
-        salary        
+    UI.SelectionFields           : [
+        department,
+        salary
     ],
 );
