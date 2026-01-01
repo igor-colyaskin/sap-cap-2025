@@ -2,7 +2,14 @@ using my.tinyoffice from '../db/schema';
 
 service CatalogService {
     @odata.draft.enabled
-    entity Employees   as projection on tinyoffice.Employee;
+    entity Employees   as
+        projection on tinyoffice.Employee {
+            *, // Берем все поля из базы (ID, name, salary...)
+
+            // Добавляем новое ВИРТУАЛЬНОЕ поле
+            // Оно существует только в API, в базе его нет
+            virtual null as bonus : Decimal(10, 2)
+        };
 
     @readonly
     entity Departments as projection on tinyoffice.Department;
@@ -116,6 +123,13 @@ annotate CatalogService.Employees with @(
             Value         : salary,
             @UI.Importance: #Low
         },
+        {
+            $Type         : 'UI.DataField',
+            Label         : 'Estimated Bonus',
+            // Расчетный бонус
+            Value         : bonus, // Наше новое поле
+            @UI.Importance: #High
+        }
     ],
     UI.SelectionFields           : [
         department,

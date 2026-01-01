@@ -33,4 +33,23 @@ module.exports = cds.service.impl(async function () {
       req.data.name = req.data.name.charAt(0).toUpperCase() + req.data.name.slice(1)
     }
   })
+
+  // НОВЫЙ КОД:
+  // После того, как данные прочитаны (READ) из Employees
+  // Аргумент data - это массив строк (или одна строка), которые вернула база
+  this.after('READ', Employees, data => {
+    // Данные могут быть массивом (список) или объектом (одна запись)
+    // Превращаем всё в массив для удобства
+    const records = Array.isArray(data) ? data : [data]
+
+    // Пробегаем по каждой записи
+    records.forEach(employee => {
+      if (employee.salary) {
+        // Логика бонуса: 20% от зарплаты
+        // В JS лучше работать с числами, поэтому умножаем
+        // toFixed(2) вернет строку, но OData это съест
+        employee.bonus = (employee.salary * 0.2).toFixed(2)
+      }
+    })
+  })
 })
