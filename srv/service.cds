@@ -9,6 +9,9 @@ service CatalogService {
             // Добавляем новое ВИРТУАЛЬНОЕ поле
             // Оно существует только в API, в базе его нет
             virtual null as bonus : Decimal(10, 2)
+        }
+        actions {
+            action boostSalary(amount: Integer) returns Employees;
         };
 
     @readonly
@@ -129,6 +132,13 @@ annotate CatalogService.Employees with @(
             // Расчетный бонус
             Value         : bonus, // Наше новое поле
             @UI.Importance: #High
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Label : 'Boost Salary 🚀',
+            Action: 'CatalogService.boostSalary',
+            // ИмяСервиса.ИмяЭкшена
+            Inline: true // true = кнопка прямо в строке, false = кнопка над таблицей
         }
     ],
     UI.SelectionFields           : [
@@ -136,3 +146,12 @@ annotate CatalogService.Employees with @(
         salary
     ],
 );
+
+// Аннотация для конкретного экшена
+annotate CatalogService.Employees with actions {
+    boostSalary @(
+        Common.SideEffects : {
+            TargetProperties : ['salary', 'bonus']
+        }
+    )
+};

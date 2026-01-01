@@ -52,4 +52,29 @@ module.exports = cds.service.impl(async function () {
       }
     })
   })
+
+  this.on('boostSalary', Employees, async req => {
+    // req.params[0] может быть объектом {ID: '...', IsActiveEntity: ...} или просто ID
+    // CAP иногда пакует ключи хитро. Самый надежный способ достать ID:
+    const id = req.params[0].ID || req.params[0]
+
+    const amount = req.data.amount || 5000
+
+    // Вариант "В лоб": Сначала читаем, потом пишем
+    // Это работает 100% всегда и везде
+
+    // 1. Читаем текущую запись
+    const employee = await SELECT.one.from(Employees).where({ ID: id })
+
+    if (!employee) req.error(404, 'Сотрудник не найден')
+
+    // 2. Считаем новую зарплату (на всякий случай переводим в Number/Float)
+    const newSalary = parseFloat(employee.salary) + parseFloat(amount)
+
+    // 3. Обновляем
+    const rowsAffected = await UPDATE(Employees).set({ salary: newSalary }).where({ ID: id })
+
+    // 4. Возвращаем результат
+    return await SELECT.one.from(Employees).where({ ID: id })
+  })
 })
