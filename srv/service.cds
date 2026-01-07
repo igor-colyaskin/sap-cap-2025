@@ -2,7 +2,7 @@ using my.tinyoffice from '../db/schema';
 
 service CatalogService {
     @odata.draft.enabled
-    entity Employees   as
+    entity Employees       as
         projection on tinyoffice.Employee {
             *, // Берем все поля из базы (ID, name, salary...)
 
@@ -15,7 +15,11 @@ service CatalogService {
         };
 
     @readonly
-    entity Departments as projection on tinyoffice.Department;
+    entity Departments     as projection on tinyoffice.Department;
+
+    // Добавляем нашу статистику (только для чтения)
+    @readonly
+    entity DepartmentStats as projection on tinyoffice.DepartmentStats;
 }
 
 annotate CatalogService.Employees with {
@@ -145,13 +149,38 @@ annotate CatalogService.Employees with @(
         department,
         salary
     ],
+    // ДОБАВЛЯЕМ ЗАГОЛОВОК:
+    UI.HeaderFacets              : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: 'departmentStats/@UI.DataPoint#BudgetKPI',
+            // Идем по связи departmentStats -> берем KPI
+            Label : 'Бюджет'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: 'departmentStats/@UI.DataPoint#CountKPI',
+            Label : 'Коллеги'
+        }
+    ],
 );
 
 // Аннотация для конкретного экшена
 annotate CatalogService.Employees with actions {
-    boostSalary @(
-        Common.SideEffects : {
-            TargetProperties : ['salary', 'bonus']
-        }
-    )
+    boostSalary @(Common.SideEffects: {TargetProperties: [
+        'salary',
+        'bonus'
+    ]})
 };
+
+annotate CatalogService.DepartmentStats with @(
+    UI.DataPoint #BudgetKPI: {
+        Title      : 'Бюджет отдела',
+        Value      : totalSalary,
+        ValueFormat: {ScaleFactor: 1000} // Покажет "150 k", если там 150000
+    },
+    UI.DataPoint #CountKPI : {
+        Title: 'Коллег в отделе',
+        Value: headCount
+    }
+);
